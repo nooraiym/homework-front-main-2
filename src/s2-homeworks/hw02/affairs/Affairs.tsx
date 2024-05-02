@@ -28,10 +28,19 @@ function Affairs(props: AffairsPropsType) {
         props.setFilter('low');
     }
 
+    // альтернатива всем функциям выше
+    // const set = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    //     props.setFilter(e.currentTarget.value as FilterType)
+    // }
+
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
     const cnHigh = s.button + ' ' + s.high + (props.filter === 'high' ? ' ' + s.active : '')
     const cnMiddle = s.button + ' ' + s.middle + (props.filter === 'middle' ? ' ' + s.active : '')
     const cnLow = s.button + ' ' + s.low + (props.filter === 'low' ? ' ' + s.active : '')
+    // альтернатива всем функциям выше
+    // const setClass = (filter: FilterType) => {
+    //     return s.button + (props.filter === filter ? '' + s.active : '')
+    // }
 
     const mappedAffairs = props.data.map((a: AffairType) => (
         <Affair
@@ -72,6 +81,10 @@ function Affairs(props: AffairsPropsType) {
                 >
                     Low
                 </button>
+                {/* <button onClick={set} className={stepClasses('all')} value={'all'}>All</button>
+                <button onClick={set} className={stepClasses('high')} value={'high'}>High</button>
+                <button onClick={set} className={stepClasses('middle')} value={'middle'}>Middle</button>
+                <button onClick={set} className={stepClasses('low')} value={'low'}>Low</button> */}
             </div>
             <div className={s.affairs}>{mappedAffairs}</div>
         </div>
