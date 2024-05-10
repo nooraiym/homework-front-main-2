@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-.hw1, .hw2, .hw3, .hw4 {
+.hw1, .hw2, .hw3, .hw4, .hw5, .hw6 {
     display: flex;
     min-height: 50vh;
     flex-direction: column;
