@@ -8,7 +8,7 @@
     padding: 40px;
 }
 
-.hw1, .hw2, .hw3, .hw4, .hw5, .hw6, .hw7, .hw8 {
+.hw1, .hw2, .hw3, .hw4, .hw5, .hw6, .hw7, .hw8, .hw9 {
     display: flex;
     min-height: 50vh;
     flex-direction: column;
