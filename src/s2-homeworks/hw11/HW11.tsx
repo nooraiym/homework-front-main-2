@@ -15,12 +15,18 @@ function HW11() {
     const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
     const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
 
-    const change = (event: any, value: any) => {
+    const change = (event: Event, value: number | number[]) => {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
+        if(value.constructor === Array){
+            setValue1(value[0])
+            setValue2(value[1])
+        } else {
+            setValue1(+value)
+        }
     }
 
     return (
-        <div id={'hw11'}>
+        <div id={'hw11'} className={s2.hw11}>
             <div className={s2.hwTitle}>Homework #11</div>
 
             <div className={s2.hw}>
@@ -29,6 +35,10 @@ function HW11() {
                         <span id={'hw11-value'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-single-slider'}
+                            value={value1}
+                            onChange={change}
+                            className={s.slider}
+                            // name='value1'
                             // сделать так чтоб value1 изменялось // пишет студент
 
                         />
@@ -37,6 +47,10 @@ function HW11() {
                         <span id={'hw11-value-1'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-double-slider'}
+                            value={[value1, value2]}
+                            onChange={change}
+                            className={s.slider}
+                            // name='value2'
                             // сделать так чтоб value1/2 изменялось // пишет студент
 
                         />
@@ -49,3 +63,8 @@ function HW11() {
 }
 
 export default HW11
+
+
+// Type '(event: React.ChangeEvent<HTMLInputElement>, value: number | number[]) => void' is not assignable to type '(event: Event, value: number | number[], activeThumb: number) => void'.
+//   Types of parameters 'event' and 'event' are incompatible.
+//     Type 'Event' is missing the following properties from type 'ChangeEvent<HTMLInputElement>': nativeEvent, isDefaultPrevented, isPropagationStopped, persist
