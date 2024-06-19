@@ -17,3 +17,8 @@ html, .select {
     background-color: var(--background);
     color: var(--color);
 }
+
+.title {
+    display: inline-block;
+    padding-bottom: 10px;
+}
